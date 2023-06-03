@@ -105,12 +105,23 @@ publishing {
 	}
 	repositories {
 		mavenLocal()
-		maven {
-			allowInsecureProtocol true
-			url = "https://nas.liupdhc.com:8086/repository/maven-releases/"
-			credentials {
-				it.username = "liupdhc"
-				it.password = "liu-7746"
+		if (version.endsWith('-SNAPSHOT')) {
+			maven {
+				allowInsecureProtocol true
+				url = "https://nas.liupdhc.com:8086/repository/maven-snapshots/"
+				credentials {
+					it.username = "liupdhc"
+					it.password = "liu-7746"
+				}
+			}
+		} else {
+			maven {
+				allowInsecureProtocol true
+				url = "https://nas.liupdhc.com:8086/repository/maven-releases/"
+				credentials {
+					it.username = "liupdhc"
+					it.password = "liu-7746"
+				}
 			}
 		}
 	}
