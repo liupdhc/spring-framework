@@ -103,6 +103,17 @@ publishing {
 			artifact javadocJar
 		}
 	}
+	repositories {
+		mavenLocal()
+		maven {
+			allowInsecureProtocol true
+			url = "https://nas.liupdhc.com:8086/repository/maven-releases/"
+			credentials {
+				it.username = "liupdhc"
+				it.password = "liu-7746"
+			}
+		}
+	}
 }
 
 // Disable publication of test fixture artifacts.
