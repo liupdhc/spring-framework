@@ -18,6 +18,14 @@ ext {
 
 configure(allprojects) { project ->
 	repositories {
+		maven {
+			allowInsecureProtocol true
+			url = "https://nas.liupdhc.com:8086/repository/maven-central/"
+			credentials {
+				it.username = "liupdhc"
+				it.password = "liu-7746"
+			}
+		}
 		mavenCentral()
 		maven {
 			url "https://repo.spring.io/milestone"
@@ -26,12 +34,12 @@ configure(allprojects) { project ->
 				includeGroup 'io.projectreactor.netty'
 			}
 		}
-		if (version.contains('-')) {
-			maven { url "https://repo.spring.io/milestone" }
-		}
-		if (version.endsWith('-SNAPSHOT')) {
-			maven { url "https://repo.spring.io/snapshot" }
-		}
+//		if (version.contains('-')) {
+//			maven { url "https://repo.spring.io/milestone" }
+//		}
+//		if (version.endsWith('-SNAPSHOT')) {
+//			maven { url "https://repo.spring.io/snapshot" }
+//		}
 	}
 	configurations.all {
 		resolutionStrategy {

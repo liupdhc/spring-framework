@@ -5,6 +5,15 @@ plugins {
 }
 
 repositories {
+
+	maven {
+		allowInsecureProtocol true
+		url = "https://nas.liupdhc.com:8086/repository/maven-central/"
+		credentials {
+			it.username = "liupdhc"
+			it.password = "liu-7746"
+		}
+	}
 	mavenCentral()
 	gradlePluginPortal()
 }
